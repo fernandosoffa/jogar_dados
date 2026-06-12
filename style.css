@@ -1,0 +1,182 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+
+    background: linear-gradient(-45deg, #0f172a, #1e3a8a, #7c3aed, #312e81);
+    background-size: 400% 400%;
+    animation: gradientMove 8s ease infinite;
+}
+
+/* Glow de fundo */
+body::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: #3b82f6;
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: 0.35;
+    top: 10%;
+    left: 20%;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: 0.35;
+    bottom: 10%;
+    right: 20%;
+    z-index: -1;
+}
+
+/* Card central */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 50px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-radius: 30px;
+}
+
+/* Título */
+h1 {
+    font-size: 3rem;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Mensagem */
+#mensagem {
+    font-size: 1.3rem;
+    padding: 20px 35px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+
+    animation: pulse 1.5s infinite;
+}
+
+/* Botão */
+button {
+    padding: 18px 45px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    color: white;
+
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+    transition: all 0.25s ease;
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.5);
+}
+
+button:active {
+    transform: scale(0.92);
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
+}
+
+/* Flash ao clicar */
+.card:has(button:active) {
+    animation: winFlash 0.6s ease;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 35px rgba(139, 92, 246, 0.6);
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes winFlash {
+    0% {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    25% {
+        box-shadow:
+            0 0 30px #ffd700,
+            0 0 60px #ff00ff,
+            0 0 90px #00ffff;
+        transform: scale(1.03);
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+        transform: scale(1);
+    }
+}
+#efeito {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.2),
+        0 0 25px rgba(139,92,246,0.3);
+    animation: float 3s ease-in-out infinite;
+}
