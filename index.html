@@ -11,9 +11,14 @@
 </head>
 <body>
     <div class="card">
-        <h1>Jogo do Dado</h1>  
-        <h2 id="tentativas">Tentativas: 3</h2>
+        <h1>Jogo do Dado</h1>
+          
         <p id="mensagem">Clique no botão para jogar o dado!</p>
+        <div class="status">
+            <p>Tentativas: <span id="tentativas">10</span></p>
+            <p>Placar: <span id="placar">0</span></p>
+            <p>Recorde: <span id="recorde">0</span></p>
+        </div>
         <button onclick="jogarDado()">Jogar</button>
     </div>
 
